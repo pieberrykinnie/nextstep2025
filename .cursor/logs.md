@@ -5,8 +5,12 @@
 2025-07-16 feat(ui): React mount added in inject.tsx rendering Hello LimitlessMeet ✓
 2025-07-16 feat(ui): added Caption component and integrated into RootApp with demo lines ✓
 2025-07-16 feat(recorder): implemented tab audio capture via ScriptProcessor, logging chunk sizes ✓
-2025-07-16 build: added whisperWorker.ts and integrated worker into background; inject.tsx now displays real transcripts ✓
+2025-07-16 build:added whisperWorker.ts and integrated worker into background; inject.tsx now displays real transcripts ✓
 2025-07-16 feat(summary): added summaryWorker, SummaryPanel UI, integrated aggregation & messaging ✓
+2025-07-16 feat(summary): 30s aggregation push to LLM – summaryWorker now buffers lines and sends to TinyLLAMA worker every 30s ✓
 2025-07-16 test: added ringBuffer util and unit tests with vitest ✓
 2025-07-16 docs: added docs/arch.md documenting end-to-end ASR pipeline ✓
 2025-07-16 feat(accessibility): added Ctrl+Alt+C shortcut to toggle captions visibility ✓
+2025-07-16 feat(search): timeline scrollback & search box – added scrollable caption timeline with real-time search, keyboard navigation, and accessibility ✓
+2025-07-16 docs:caption usage – documented timeline scrollback & search in README and arch.md ✓
+2025-07-16 build:add TinyLLAMA wasm worker – scaffolded tinyllamaWorker.ts with init/summarize messages, ready for model integration ✓

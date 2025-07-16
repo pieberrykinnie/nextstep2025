@@ -53,3 +53,7 @@ Summary Worker (summaryWorker.ts)  ←─────────────┐
 * Replace `ScriptProcessorNode` with `AudioWorkletProcessor` for lower latency (still experimental in MV3).
 * Add VAD (WebRTC) to skip silence and reduce compute cost.
 * Experiment with 8-bit quantisation for improved accuracy vs size trade-off.
+
+## Timeline Scrollback & Search (2025-07-16)
+
+The captions overlay now supports full timeline scrollback and a real-time search box. Users can scroll through all previous captions, search instantly (case-insensitive), and keyboard navigation is supported: press `/` to focus the search box, `Esc` to clear. The scroll area is accessible with ARIA roles and visible focus.

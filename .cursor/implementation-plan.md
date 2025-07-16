@@ -53,17 +53,17 @@ Legend: `[test]` – testing instructions • `[docs]` – documentation updates
     [test] Toggle font size; CSS updates.
 15. **feat(accessibility): keyboard shortcut to toggle captions (Ctrl+Alt+C)**  
     [test] Shortcut shows/hides overlay.
-16. **feat(search): timeline scrollback & search box**  
+16. **feat(search): timeline scrollback & search box**  ✓
     [test] Type term, highlighted instances appear.
-17. **docs:caption usage** – Add to `README.md` & `docs/user-guide.md`.
+17. **docs:caption usage** – Add to `README.md` & `docs/user-guide.md` ✓
 
 ---
 
 ## 4. Summariser & NLP
 
-18. **build:add TinyLLAMA wasm worker** – Include model and inference wrapper.  
+18. **build:add TinyLLAMA wasm worker** – Include model and inference wrapper.  ✓
     [test] Worker returns dummy summary from sample text.
-19. **feat(summary): 30 s aggregation push to LLM**  
+19. **feat(summary): 30 s aggregation push to LLM**  ✓
     [test] Summary panel populates after half-minute.
 20. **feat(nlp): action-item regex extractor** – Simple rule-based parse of summary.  
     [test] Strings with "[ ]" tasks listed.
