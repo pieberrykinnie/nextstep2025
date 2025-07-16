@@ -32,3 +32,5 @@
 2025-07-16 chore:demo script – created demo.sh for hackathon demo with Chromium launch and extension loading ✓
 2025-07-16 build:version 0.1.0 – updated manifest version and created comprehensive CHANGELOG.md ✓
 2025-07-16 docs:submission readme – created SUBMISSION.md with hackathon deliverables and judging criteria alignment ✓
+2025-07-16 docs:setup guidelines – created comprehensive setup.md with development environment, deployment, and troubleshooting instructions ✓
+2025-07-16 docs:presentation script – created detailed script.md with demo flow, Q&A prep, and Marimo slides for interactive presentation ✓
