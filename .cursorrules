@@ -1,0 +1,78 @@
+# .cursorrules – Development Guidelines for LimitlessMeet & Workspace
+
+These rules are **binding** for every code, doc, commit, test, and terminal action in this repository. Keep them short-lived, actionable, and easy to remember.
+
+---
+
+## 1. Terminal Etiquette
+1. **First command in every fresh shell or after `cd`:**
+   ```bash
+   pwd && ls -a && tree -L 2 | head -n 30 | cat
+   ```
+   *Rationale:* quick situational awareness, logged in CI artifacts.
+2. Prefer **non-interactive flags** (`--yes`, `--force`, `| cat`) so automated runs never hang.
+3. Use **pnpm** for JS/TS work, **uv** for Python. Never run `npm install` or `pip install` directly.
+4. Background tasks: set `is_background: true` in run_terminal_cmd.
+
+## 2. Dependency Discipline
+1. Generate project scaffolding organically:
+   * JS/TS: `pnpm init -y`, then `pnpm add` or `pnpm add -D`.
+   * Python: `uv init && uv sync && source .venv/bin/activate`.
+2. Never commit auto-generated manifests (`package.json`, `pyproject.toml`, `pnpm-lock.yaml`) manually created—let the commands above create/update them.
+3. **Before adding any new library** (even dev-dependency):
+   * Run web_search on `"<lib> docs TypeScript"` (or Python/Rust) and skim API & license.
+   * Log the link and justification in `.cursor/logs.md`.
+4. Keep a single `.env.example` per app layer. Never commit real secrets. Provide setup instructions in `docs/setup.md`.
+
+## 3. Code Quality & Style
+1. **Language preference**: TypeScript > JavaScript; Rust > C; Python 3.12+ with type hints; Bash only for small scripts.
+2. **Strict type safety**: `"strict": true` in `tsconfig.json`, `python -m mypy` CI step, Rust `#![deny(unsafe_code)]`.
+3. Every exported function, component, class or non-trivial helper **must** include a docstring/JSDoc:
+   ```ts
+   /**
+    * Compute rolling summary.
+    * @param transcript Complete text so far.
+    * @returns {Promise<string>} bullet list summary.
+    * @throws when LLM inference fails.
+    */
+   ```
+4. ESLint/Prettier (JS/TS) and Ruff/Black (Python) run on each commit via pre-push hook.
+5. Use descriptive variable names; abbreviations only for well-known terms (`id`, `URL`).
+6. Limit file length to 400 lines and function length to 60 lines—refactor otherwise.
+
+## 4. Git & Commits
+1. Follow **Conventional Commits** strictly (`type(scope): subject`). Types: `feat`, `fix`, `test`, `docs`, `build`, `ci`, `refactor`, `perf`, `style`, `chore`, `revert`.
+2. One logical change per commit. Use `git add -p`.
+3. No force-pushes on main. Feature branches merged via fast-forward or PR.
+4. Every commit **must pass**: lint, type-check, unit tests.
+
+## 5. Tests & Docs
+1. **Test-first mindset**: write failing test, implement, then pass.
+2. Unit tests for all pure functions/components; integration tests for pipelines; Playwright for UI.
+3. Maintain >90 % coverage. If not feasible, explain in code comment & `.cursor/logs.md`.
+4. Update `docs/user-guide.md` & `docs/DEV-API.md` with each feature. Maximum of **10 files** under `docs/` at any time—consolidate/refactor when threshold hit.
+
+## 6. Accessibility & Internationalisation
+1. All UI components must:
+   * Pass WCAG 2.2 AA colour-contrast.
+   * Include keyboard and screen-reader semantics (`aria-*`).
+2. Provide captions/alt-text for every image in docs.
+3. All user-visible strings routed through i18n module; English default.
+
+## 7. Security & Privacy
+1. Default-deny CORS, Content Security Policy in extension manifest.
+2. Store data only in user-controlled browser storage (IndexedDB/chrome.storage) – no external telemetry.
+3. Cryptographic dependencies from audited libraries only.
+
+## 8. Environment & Deployment
+1. Shipping artifacts produced via repeatable CI; no local builds uploaded.
+2. Version bump via `pnpm changeset` (or semantic-release) triggered by conventional commit messages.
+3. Keep container images (if any) minimal (`node:18-slim` + `apk --no-cache`).
+
+## 9. Logging & Monitoring
+1. Use `console.debug` during dev; strip or guard logs behind `process.env.DEBUG` in production build.
+2. Error messages must not leak PII.
+3. `.cursor/logs.md` is single-source of truth for progress; flush context tokens except current step per spec.
+
+## 10. Rule Evolution
+* Changes require PR that updates this file, reviews by ≥2 maintainers, and increments docs.
