@@ -1,8 +1,7 @@
 // extension/content/inject.tsx
-// Injects the LimitlessMeet root container into the page and mounts React UI
-
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
+import { Caption } from "../ui/Caption";
 
 const ROOT_ID = "limitlessmeet-root";
 
@@ -10,25 +9,34 @@ function ensureRoot() {
   if (document.getElementById(ROOT_ID)) return;
   const root = document.createElement("div");
   root.id = ROOT_ID;
-  root.style.all = "initial"; // isolate basics
+  root.style.all = "initial";
+  root.style.position = "fixed";
+  root.style.bottom = "4%";
+  root.style.left = "50%";
+  root.style.transform = "translateX(-50%)";
+  root.style.zIndex = "2147483647"; // top-most
   document.documentElement.appendChild(root);
-  console.debug("[LimitlessMeet] root injected");
 }
 
 ensureRoot();
 
+const mountNode = document.getElementById(ROOT_ID)!;
+
 function RootApp() {
-  return (
-    <div style={{ padding: '4px', background: 'rgba(0,0,0,0.6)', color: '#fff', fontSize: '14px' }}>
-      Hello LimitlessMeet
-    </div>
-  );
+  const [lines, setLines] = useState<string[]>([]);
+
+  // Demo: push dummy caption every 3s until ASR integrated
+  useEffect(() => {
+    const demo = setInterval(() => {
+      setLines((prev) => [...prev, `Sample caption ${prev.length + 1}`]);
+    }, 3000);
+    return () => clearInterval(demo);
+  }, []);
+
+  return <Caption lines={lines} fontSizePx={18} />;
 }
 
-const mountNode = document.getElementById(ROOT_ID)!;
 createRoot(mountNode).render(<RootApp />);
 
-// Example ping to background
-chrome.runtime.sendMessage({ ping: "hello" }, (resp) => {
-  console.debug("[LimitlessMeet] background replied", resp);
-});
+// background ping
+chrome.runtime.sendMessage({ ping: "hello" });
