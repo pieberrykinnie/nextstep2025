@@ -1,0 +1,13 @@
+{
+  "name": "limitlessmeet",
+  "version": "0.0.0",
+  "description": "Inclusive meeting co-pilot browser extension",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings 0",
+    "test": "vitest"
+  },
+  "license": "MIT"
+}

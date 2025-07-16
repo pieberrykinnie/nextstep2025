@@ -1,0 +1,1 @@
+2025-07-16 chore(repo): initial scaffold – added README, MIT LICENSE, .gitignore, minimal package.json ✓
