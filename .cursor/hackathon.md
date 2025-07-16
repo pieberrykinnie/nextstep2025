@@ -1,91 +1,68 @@
-# NextStep Hacks 2025 – Hackathon Details
+# NextStep Hacks 2025 – LimitlessMeet Submission
 
-## Name of the Hackathon
-NextStep Hacks 2025
+## Project Name
+**LimitlessMeet – Inclusive Meeting Co-Pilot**
 
-## Dates & Theme
-* **Dates:** July 11 – 19, 2025  
-* **Theme:** **Limitless** – Creating cutting-edge solutions that empower people with disabilities by breaking accessibility barriers and redefining inclusivity.
+## Purpose
+LimitlessMeet is an accessibility-focused browser extension designed for the NextStep Hacks 2025 hackathon. Its mission is to make online meetings more inclusive for:
+- Deaf/Hard-of-Hearing (HoH) users
+- Neurodivergent users
+- Motor-impaired users
+- Anyone who benefits from real-time captions, summaries, and accessible controls
 
-## Overview / Details
-NextStep Hacks 2025 is a week-long virtual hackathon hosted by **HackAlphaX**, a student-founded organization committed to making technology accessible to all. The event features engaging workshops, raffles, giveaways, and dedicated mentor sessions. Participants will collaborate to build projects that have real-world impact for individuals with disabilities, embodying the spirit of "Limitless."  
-* Opening, workshop, and closing streams are hosted on the [HackAlphaX YouTube Channel](https://www.youtube.com/@hackalphax).  
-* Community updates and support are provided via the official [Discord server](https://discord.gg/hFxwvgZDsh).  
-* Volunteers or judges can apply through the **Volunteer/Judging Form**.
+## Key Features
+- **Real-time, on-device captions** (using Whisper.cpp WASM)
+- **Timeline scrollback & search** for captions (accessible, keyboard navigable)
+- **Meeting summary panel** (periodic summarization with TinyLLAMA)
+- **Action item extraction** (regex and LLM-based)
+- **Export to Markdown/HTML** (captions, summary, actions)
+- **Session autosave & restore** (IndexedDB)
+- **Keyboard shortcut mapping UI** (customizable, persistent)
+- **WebHID integration stub** (for BCI/blink-board/assistive device input)
+- **Settings modal** (General, Accessibility, Shortcuts)
+- **High-contrast & dyslexia-friendly theming**
+- **Strict accessibility and security best practices**
 
-## Problem Statement
-Communities thrive when everyone has the tools to succeed, yet individuals with disabilities still face significant challenges—from physical accessibility barriers to limited assistive technologies. Participants must:
+## Target Users
+- Deaf/HoH individuals
+- Neurodivergent users (e.g., ADHD, autism)
+- Motor-impaired users (e.g., those using assistive devices)
+- Anyone seeking more accessible, actionable meeting experiences
 
-1. Identify a specific issue faced by individuals with disabilities or organizations supporting them.
-2. Design and build an innovative technological solution that directly addresses this issue.
-3. Share (or plan to share) the solution with the affected individuals/organizations to ensure real-world impact.
+## Tech Stack
+- **TypeScript**
+- **React**
+- **WebExtension APIs** (Manifest v3)
+- **Whisper.cpp WASM** (on-device ASR)
+- **TinyLLAMA** (WASM summarization)
+- **IndexedDB** (session storage)
+- **Playwright, Vitest** (testing)
+- **Tailwind CSS** (theming)
 
-## Required Deliverables
-Each submission **must** include:
-1. **Video demonstration / pitch (≤ 5 minutes)**
-2. **Link to the code repository** (e.g., GitHub/Devpost)
-3. **Live link to the deployed application** (if applicable)
-4. If continuing an existing project, clearly specify in the Devpost submission what was built **before** vs **during** the hackathon.
+## Accessibility Focus
+- Keyboard navigation for all features
+- ARIA roles, visible focus, and semantic HTML
+- High-contrast and dyslexia-friendly options
+- Designed for compatibility with screen readers and assistive tech
+- WebHID support for BCI/blink-board input (future work)
 
-## Prize Categories
-* **Future of Work Track**  
-  * $1,000 cash (1 winner)
-* **Overall 1st Place**  
-  * $1,000 Azure OpenAI Credits  
-  * Final-round internship interview at **Kinetik Gigs**  
-  * 2 AoPS coupons  
-  * 20 XYZ Domains  
-  * 1 year of NordVPN, NordPass, Saily & Incogni
-* **Overall 2nd Place**  
-  * $600 Azure OpenAI Credits  
-  * Final-round internship interview at **Kinetik Gigs**  
-  * 1 AoPS coupon  
-  * 15 XYZ Domains  
-  * 1 year of NordVPN, NordPass, Saily & Incogni
-* **Overall 3rd Place**  
-  * $400 Azure OpenAI Credits  
-  * Final-round internship interview at **Kinetik Gigs**  
-  * 1 AoPS coupon  
-  * 10 XYZ Domains  
-  * 1 year of NordVPN, NordPass, Saily & Incogni
-* **Participation Prizes** (700 winners)  
-  * Wolfram Alpha Desktop & Cloud license (valued at $830)  
-  * XYZ Domain (350 available)
+## Project Structure
+- `extension/` – Main extension code (UI, background, content, workers)
+- `tests/` – Unit and integration tests
+- `docs/` – Architecture and user documentation
+- `.cursor/` – Project management, logs, and hackathon deliverables
 
-## Judges
-* HackAlphaX Team
-* **Nidhi Mahajan** – Director of Business Strategy & Program Operations @ Visa
-* **Parth Jain** – Software Development Engineer @ Netflix
-* **Kelvin Ngoc Nguyen Le** – Staff Software Engineer @ Knoetic
-* **Sanath Chilakala** – Director of Data & AI @ NTT Data
-* **Arbaz Surti** – Product Analyst @ Dunkin
-* **Anand Upendrakumar Desai** – AI Core Engineer @ Microsoft
-* **Jeet Nishit Mehta** – Software Engineer @ Netflix
-* **Lokesh Lagudu** – Senior Engineering Manager @ Walmart
-* **Sarvesh Kumar Gupta** – Software Architect @ Oracle
-* **Kusha Maharshi** – Senior Software Engineer @ Bloomberg
-* **Sairam Jalakam Devarajulu** – Frontend Software Engineer @ Productiv
-* **Durgaprasad Balakrishnan** – Director of Cybersecurity @ Visa
-* **Rajesh Sura** – Head of Data Engineering and Analytics @ Amazon
-* **Aditya Salian** – Software Engineer @ Atlas
-* **Prashanthi Matam** – Software Engineer @ Discover
-* **Mahendran Chinnaiah** – Healthcare Architect @ CVS
-* **Omkar Bhalekar** – Senior Network Engineer @ Tesla
-* **Nikhil Jain** – Senior Software Engineer @ Walmart
+## Documentation & Logging
+- All features and progress are logged in `.cursor/logs.md`
+- Implementation plan and proposal in `.cursor/implementation-plan.md` and `.cursor/proposal.md`
+- Architecture and accessibility details in `docs/arch.md`
 
-## Judging Criteria
-1. **Originality** – Novelty and creativity of the solution.
-2. **Adherence to Track** – Alignment with the "Limitless" theme.
-3. **Completion** – Functionality and completeness of the hack.
-4. **Learning** – Evidence of new skills or technologies learned by the team.
-5. **Design** – User experience and interface quality.
-6. **Technology** – Technical complexity and impressiveness.
-
-## Additional Tracks / Opportunities
-* **Kinetik Gigs: Future of Work**  
-  Submit an innovative idea, tool, or prototype that reimagines future collaboration and productivity in the workplace.  
-  *Submission access code:* `kinetik`
+## Future Improvements
+- Multilingual auto-detect
+- ASL overlay
+- Cloud optional backend
+- Mobile companion app
 
 ---
 
-*This document is the single source of truth for all hackathon requirements and will be referenced throughout the project.*
+*This file summarizes the LimitlessMeet project for the NextStep Hacks 2025 hackathon, including its accessibility mission, features, and technical approach.*
