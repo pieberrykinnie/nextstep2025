@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import { Caption } from "../ui/Caption";
 import { SummaryPanel } from "../ui/SummaryPanel";
 import { ShortcutModal } from "../ui/ShortcutModal";
+import { SettingsModal } from "../ui/SettingsModal";
 
 const ROOT_ID = "limitlessmeet-root";
 
@@ -25,6 +26,7 @@ function RootApp() {
   const [actions, setActions] = useState<string[]>([]);
   const [showCaptions, setShowCaptions] = useState<boolean>(true);
   const [shortcutModalOpen, setShortcutModalOpen] = useState(false);
+  const [settingsModalOpen, setSettingsModalOpen] = useState(false);
   const [shortcuts, setShortcuts] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("limitlessmeet.shortcuts") || "[]");
@@ -124,19 +126,32 @@ function RootApp() {
 
   return (
     <>
-      <button
-        onClick={() => setShortcutModalOpen(true)}
-        style={{ position: "fixed", top: 10, left: 10, zIndex: 2147483647, background: "#222", color: "#fff", border: "none", borderRadius: 4, padding: "6px 12px", fontSize: 14 }}
-        aria-label="Open shortcut settings"
-      >
-        Shortcuts
-      </button>
+      <div style={{ position: "fixed", top: 10, left: 10, zIndex: 2147483647, display: "flex", gap: 8 }}>
+        <button
+          onClick={() => setShortcutModalOpen(true)}
+          style={{ background: "#222", color: "#fff", border: "none", borderRadius: 4, padding: "6px 12px", fontSize: 14 }}
+          aria-label="Open shortcut settings"
+        >
+          Shortcuts
+        </button>
+        <button
+          onClick={() => setSettingsModalOpen(true)}
+          style={{ background: "#007bff", color: "#fff", border: "none", borderRadius: 4, padding: "6px 12px", fontSize: 14 }}
+          aria-label="Open settings"
+        >
+          Settings
+        </button>
+      </div>
       <ShortcutModal
         open={shortcutModalOpen}
         onClose={() => setShortcutModalOpen(false)}
         shortcuts={shortcuts}
         onAdd={s => setShortcuts((prev: any) => [...prev, s])}
         onRemove={idx => setShortcuts((prev: any) => prev.filter((_: any, i: number) => i !== idx))}
+      />
+      <SettingsModal
+        open={settingsModalOpen}
+        onClose={() => setSettingsModalOpen(false)}
       />
       {showCaptions && <Caption lines={lines} fontSizePx={18} />}
       <SummaryPanel summary={summary} actions={actions} captions={lines} />
