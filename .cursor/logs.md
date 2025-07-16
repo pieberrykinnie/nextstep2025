@@ -6,3 +6,4 @@
 2025-07-16 feat(ui): added Caption component and integrated into RootApp with demo lines ✓
 2025-07-16 feat(recorder): implemented tab audio capture via ScriptProcessor, logging chunk sizes ✓
 2025-07-16 build: added whisperWorker.ts and integrated worker into background; inject.tsx now displays real transcripts ✓
+2025-07-16 feat(summary): added summaryWorker, SummaryPanel UI, integrated aggregation & messaging ✓

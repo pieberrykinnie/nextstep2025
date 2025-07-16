@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { Caption } from "../ui/Caption";
+import { SummaryPanel } from "../ui/SummaryPanel";
 
 const ROOT_ID = "limitlessmeet-root";
 
@@ -10,11 +11,6 @@ function ensureRoot() {
   const root = document.createElement("div");
   root.id = ROOT_ID;
   root.style.all = "initial";
-  root.style.position = "fixed";
-  root.style.bottom = "4%";
-  root.style.left = "50%";
-  root.style.transform = "translateX(-50%)";
-  root.style.zIndex = "2147483647"; // top-most
   document.documentElement.appendChild(root);
 }
 
@@ -24,19 +20,29 @@ const mountNode = document.getElementById(ROOT_ID)!;
 
 function RootApp() {
   const [lines, setLines] = useState<string[]>([]);
+  const [summary, setSummary] = useState<string>("");
+  const [actions, setActions] = useState<string[]>([]);
 
   useEffect(() => {
-    // Listen for transcripts from background
     const handler = (msg: any) => {
       if (msg.transcript) {
         setLines((prev) => [...prev, msg.transcript]);
+      }
+      if (msg.summary) {
+        setSummary(msg.summary);
+        setActions(msg.actions || []);
       }
     };
     chrome.runtime.onMessage.addListener(handler);
     return () => chrome.runtime.onMessage.removeListener(handler);
   }, []);
 
-  return <Caption lines={lines} fontSizePx={18} />;
+  return (
+    <>
+      <Caption lines={lines} fontSizePx={18} />
+      <SummaryPanel summary={summary} actions={actions} />
+    </>
+  );
 }
 
 createRoot(mountNode).render(<RootApp />);
