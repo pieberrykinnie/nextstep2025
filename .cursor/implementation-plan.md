@@ -75,16 +75,11 @@ Legend: `[test]` – testing instructions • `[docs]` – documentation updates
 
 ## 5. Shortcut & BCI Layer
 
-23. **feat(shortcuts): generic key mapping UI** – Users choose key or HID event.  
+23. **feat(shortcuts): generic key mapping UI** – Users choose key or HID event.  ✓
     [test] Map “Ctrl+M” to mute; works.
-24. **feat(WebHID): blink-board integration stub** – Connect to USB device, log events.  
+24. **feat(WebHID): blink-board integration stub** – Connect to USB device, log events.  ✓
     [test] Simulated HID sends code triggers action.
-25. **docs:BCI API spec** – Describe expected HID report format.
-
----
-
-## 6. Export & Storage
-
+25. **docs:BCI API spec** – Describe expected HID report format. ✓
 26. **feat(export): Markdown/HTML export** – Button creates file with captions + summary + actions.  
     [test] Download file opens correctly.
 27. **feat(storage): session autosave (IndexedDB)**  

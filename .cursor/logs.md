@@ -17,3 +17,6 @@
 2025-07-16 feat(nlp): action-item regex extractor – TinyLLAMA worker now extracts '[ ]' tasks as action items ✓
 2025-07-16 test:nlp – unit tests for action-item extractor patterns pass ✓
 2025-07-16 style:summary panel – refactored to two-panel responsive layout, accessible and resizable ✓
+2025-07-16 feat(shortcuts): generic key mapping UI – added ShortcutModal, persistent mappings, and demo shortcut actions ✓
+2025-07-16 feat(WebHID): blink-board integration stub – added Connect HID Device button, logs device info or error ✓
+2025-07-16 docs:BCI API spec – documented expected HID report format and WebHID usage in arch.md ✓

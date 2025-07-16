@@ -57,3 +57,19 @@ Summary Worker (summaryWorker.ts)  ←─────────────┐
 ## Timeline Scrollback & Search (2025-07-16)
 
 The captions overlay now supports full timeline scrollback and a real-time search box. Users can scroll through all previous captions, search instantly (case-insensitive), and keyboard navigation is supported: press `/` to focus the search box, `Esc` to clear. The scroll area is accessible with ARIA roles and visible focus.
+
+## BCI/Assistive Device API (WebHID)
+
+LimitlessMeet supports integration with assistive hardware (e.g., blink-board, custom BCI) via the WebHID API. The expected HID report format is:
+
+- **Report ID:** 0x01 (default)
+- **Payload:**
+  - Byte 0: Event type (e.g., 0x01 = blink, 0x02 = switch, 0x10 = custom)
+  - Byte 1: Action code (e.g., 0x01 = mute, 0x02 = toggle captions, 0x03 = next slide)
+  - Byte 2+: Optional data (reserved)
+
+**Example:**
+- `[0x01, 0x01]` → Blink event triggers mute
+- `[0x01, 0x02]` → Blink event toggles captions
+
+The extension listens for HID input and maps events to user-configured actions. See the shortcut modal for device connection and mapping.
