@@ -4,3 +4,4 @@
 2025-07-16 feat(content): added DOM injector inject.tsx creates root div ✓
 2025-07-16 feat(ui): React mount added in inject.tsx rendering Hello LimitlessMeet ✓
 2025-07-16 feat(ui): added Caption component and integrated into RootApp with demo lines ✓
+2025-07-16 feat(recorder): implemented tab audio capture via ScriptProcessor, logging chunk sizes ✓
