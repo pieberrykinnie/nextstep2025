@@ -25,12 +25,15 @@ const mountNode = document.getElementById(ROOT_ID)!;
 function RootApp() {
   const [lines, setLines] = useState<string[]>([]);
 
-  // Demo: push dummy caption every 3s until ASR integrated
   useEffect(() => {
-    const demo = setInterval(() => {
-      setLines((prev) => [...prev, `Sample caption ${prev.length + 1}`]);
-    }, 3000);
-    return () => clearInterval(demo);
+    // Listen for transcripts from background
+    const handler = (msg: any) => {
+      if (msg.transcript) {
+        setLines((prev) => [...prev, msg.transcript]);
+      }
+    };
+    chrome.runtime.onMessage.addListener(handler);
+    return () => chrome.runtime.onMessage.removeListener(handler);
   }, []);
 
   return <Caption lines={lines} fontSizePx={18} />;
@@ -38,5 +41,4 @@ function RootApp() {
 
 createRoot(mountNode).render(<RootApp />);
 
-// background ping
 chrome.runtime.sendMessage({ ping: "hello" });

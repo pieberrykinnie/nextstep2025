@@ -5,20 +5,21 @@ import { startTabAudioCapture } from "./audioCapture";
 
 console.info("[LimitlessMeet] background service worker bootstrapped");
 
-self.addEventListener("activate", () => {
-  console.info("[LimitlessMeet] activated");
+// Whisper worker setup
+const worker = new Worker(new URL("../workers/whisperWorker.ts", import.meta.url), {
+  type: "module",
 });
 
-chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-  if (msg?.ping === "hello") {
-    sendResponse({ pong: "world" });
-    return true;
+worker.postMessage({ type: "init", wasmPath: chrome.runtime.getURL("dist/whisper.wasm") });
+
+worker.onmessage = (e) => {
+  if (e.data.type === "ready") {
+    console.info("[LimitlessMeet] Whisper worker ready");
+  } else if (e.data.type === "transcript") {
+    chrome.runtime.sendMessage({ transcript: e.data.text });
   }
-});
+};
 
-// Auto-start capture for prototype (later tie to meeting detection)
 startTabAudioCapture((chunk) => {
-  console.debug("[LimitlessMeet] audio chunk", chunk.length);
-}).catch((err) => {
-  console.error("[LimitlessMeet] audio capture failed", err);
-});
+  worker.postMessage({ type: "audio", pcm: chunk }, [chunk.buffer]);
+}).catch((err) => console.error(err));
