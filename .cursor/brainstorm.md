@@ -24,3 +24,144 @@
 ---
 
 (Continue to iterate with new queries to reach 10+ iterations and refine ideas.)
+
+## Iteration 2 – Search Query: "affordable assistive hardware open-source devices disabilities 2025"
+
+### Key Findings
+* Fan-shaped open-source one-handed keyboard (HTX Studio) improves text entry for hemiplegic users.
+* Bike-Leg Project repurposes discarded bicycle parts to create low-cost prosthetic limbs in low-resource areas.
+* PiEEG Kit: self-contained Raspberry Pi BCI lab (EEG/EMG/ECG) democratizes neurotech tinkering.
+
+### Insights
+Open-hardware culture is driving down costs for specialized assistive gear; designs that leverage ubiquitous materials (bike frames, Raspberry Pi) win on scalability.
+
+### Idea Seeds
+1. Modular open-source haptic wristband kit that blind users can assemble cheaply (3-D printed + Arduino).
+2. “Keyboard-as-a-service” STL generator—input hand-span & impairment, output printable ergonomic layout.
+
+---
+
+## Iteration 3 – Search Query: "AI accessibility tools for remote work productivity 2025"
+
+### Key Findings
+* AI dictation tools like Willow Voice and Voicy add Whisper-level speech-to-text with auto-formatting in any app.
+* HARPA browser assistant automates repetitive web tasks; Gemini Scheduled Actions brings proactive automation across Google Workspace.
+* HomeLLaMA research explores on-device small-language-model assistants for privacy-preserving smart homes.
+
+### Insights
+Generative-AI voice + agentic workflow tools are maturing—perfect for Future-of-Work prize. On-device privacy is a growing differentiator.
+
+### Idea Seeds
+1. Browser extension that layers meeting-ready live captions + action item summarization + journaling for neurodivergent workers.
+2. Edge-run SLM that personalizes keyboard shortcuts & macro triggers via natural-language chats.
+
+---
+
+## Iteration 4 – Search Query: "winning hackathon project accessibility 2024 assistive technology"
+
+### Key Findings
+* Agentic (SB Hacks X Grand Prize) – natural-language web automation for blind users.
+* AiSL (TikTok TechJam 3rd) – sign-language-to-captions, TTS & emoji for Deaf creators.
+* ClearVue (GrizzHacks 6 #1) – GPT-4 auditory scene descriptions via hat-mounted camera.
+* Accessible Articles (CougHacks 1st) – customizable reading mode for dyslexia & visual stress.
+
+### Insights
+Judges reward: 1) clear alignment to inclusivity theme, 2) tangible demo, 3) clever AI wrappers around common pain-points.
+
+### Idea Seeds
+Create mash-up that merges text-to-action (Agentic) with multi-modal captioning (AiSL) for an all-in-one accessibility co-pilot.
+
+---
+
+## Iteration 5 – Search Query: "haptic feedback wearables blind navigation 2025 innovations"
+
+### Key Findings
+* Oncue modular keyboard + haptic cuffs assists Parkinson’s users with rhythmic vibration guidance.
+* IDTechEx report highlights multisensory smart-clothing & wearable haptics for real-time cues.
+* OneCourt tablet uses haptic grid to let DeafBlind fans feel live sports plays.
+
+### Insights
+Low-latency vibro-tactile output paired with AI context opens doors for spatial awareness, mobility & recreation.
+
+### Idea Seeds
+1. Belt or cross-body sash with AI vision + directional haptics (“360° sonar”) for indoor orientation.
+2. Haptic “mini-radar” add-on for wheelchairs signalling drop-offs & obstacles.
+
+---
+
+## Iteration 6 – Search Query: "open source offline speech recognition 2025 whisper.cpp Vosk Kaldi updates"
+
+### Key Findings
+* WhisperKit (ICML 2025) achieves 0.46 s latency, 2.2 % WER on-device.
+* Quantization techniques (INT4-8) shrink Whisper models 45 % with 19 % latency gains.
+* Edge STT ecosystems combine WebRTC VAD + Faster-Whisper + wake-word libs for fully offline pipelines.
+
+### Insights
+Running state-of-the-art ASR locally on mobiles/embedded now practical → crucial for privacy (medical, classroom) and network-limited users.
+
+### Idea Seeds
+Embed WhisperKit-micro model into caption glasses to eliminate cloud dependency & subscription fees.
+
+---
+
+## Iteration 7 – Search Query: "open source EEG headset 2025 low cost brain computer interface projects"
+
+### Key Findings
+* Hackster Brain-to-Text w/ NeuroSky shows blink-driven speller using LLM context.
+* UpsideDownLabs Neuro PlayGround Lite: $ open-hardware 3-channel EEG board; web BCI demos.
+* PiEEG Kit crowdsourcing campaign brings full Pi-based portable EEG lab (<$300 bill-of-materials).
+
+### Insights
+DIY BCI is trending; combining cheap EEG with on-device AI unlocks novel input for severe motor impairments.
+
+### Idea Seeds
+Thought-triggered macro pad that maps blink/alpha bursts to common remote-work shortcuts (mute/unmute, raise hand).
+
+---
+
+## Iteration 8 – Search Query: "smart home voice control accessibility disability 2025 innovations"
+
+### Key Findings
+* Amazon Alexa+ (Feb 2025) introduces agentic task execution + Prime-bundled pricing.
+* HomeLLaMA (arXiv 2507.08878) proposes privacy-preserving on-device SLM for tailored smart-home control.
+* Wearable sensors + voice UIs highlighted by IDTechEx for elders & mobility-impaired.
+
+### Insights
+Smart-home assistants are shifting from command-and-control to proactive, personalized agents—opportunity to integrate accessibility profiles (e.g., slower speech, multimodal feedback).
+
+### Idea Seeds
+Universal Accessibility Skill-Builder: layer on top of Alexa+/HomeLLaMA to auto-adapt lighting, HVAC, and alerts based on user’s sensory profile.
+
+---
+
+## Iteration 9 – Search Query: "ASL translation mobile apps 2024 2025 machine learning"
+
+### Key Findings
+* Cornell SpellRing wearable translates ASL fingerspelling (82-92 % accuracy) with micro-sonar + AI.
+* AiSL project pipeline (MediaPipe Gesture Recognizer + Gemini) offers end-to-end sign-to-speech + emoji captions.
+* Google’s Sign Language Expansion Pack for Pixel 8 camera (late 2024) improves on-device sign detection.
+
+### Insights
+Progress quickest in fingerspelling ‑> text; full-sign translation still challenging. Hybrid approach (fingerspelling + intent inference) may be feasible for MVP.
+
+### Idea Seeds
+Smartphone mount + SpellRing integration to provide live sign captions in video calls, piping output into meeting transcription stream.
+
+---
+
+## Iteration 10 – Search Query: "affordable refreshable braille display 2025 innovations"
+
+### Key Findings
+* Dot Pad: 2,400-pin tactile graphics + 160-cell multiline braille under £8 k—drops cost/pin by 2/3; real-time graphics via iOS VoiceOver.
+* NewHaptics Codex: 4-line 32-cell display using pneumatic cells; target $10 k with touchpad gesture routing.
+* Monarch RISE project pushing open standard for multiline braille in education.
+
+### Insights
+Multiline braille & tactile graphics are finally approaching price points (sub-$10 k) viable for schools and pros; standards work (JAWS multilayer support) is the bottleneck.
+
+### Idea Seeds
+Service layer that converts web graphs/diagrams into Dot Pad-ready tactile SVG on the fly, integrated with screen readers.
+
+---
+
+**Progress Check:** 10 iterations complete. Continuing research as needed until we converge on 5 strong, feasible hackathon project concepts.
