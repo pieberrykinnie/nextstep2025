@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext .ts,.tsx --max-warnings 0",
-    "test": "vitest"
+    "test": "vitest",
+    "zip": "node scripts/build-zip.js"
   },
   "license": "MIT",
   "dependencies": {

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "LimitlessMeet",
   "description": "Inclusive meeting co-pilot: offline captions, summaries, action items, shortcuts.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "permissions": [
     "storage",
     "activeTab",

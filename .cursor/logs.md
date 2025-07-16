@@ -26,3 +26,9 @@
 2025-07-16 feat(settings): added SettingsModal with General, Accessibility, and Shortcuts tabs, chrome.storage.sync persistence, and UI integration ✓
 2025-07-16 build:fixed Vite config and mock WASM import for successful extension build ✓
 2025-07-16 feat(theme): implemented high-contrast and dyslexia-friendly font toggles, Caption now responds to accessibility settings ✓
+2025-07-16 ci:GitHub Actions setup – added CI workflow with build, lint, test, and artifact upload ✓
+2025-07-16 build:zip artifact script – created build-zip.js for extension packaging and store upload ✓
+2025-07-16 docs:dev setup guide – added CONTRIBUTING.md with pnpm, Vite commands and project structure ✓
+2025-07-16 chore:demo script – created demo.sh for hackathon demo with Chromium launch and extension loading ✓
+2025-07-16 build:version 0.1.0 – updated manifest version and created comprehensive CHANGELOG.md ✓
+2025-07-16 docs:submission readme – created SUBMISSION.md with hackathon deliverables and judging criteria alignment ✓
