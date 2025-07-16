@@ -9,3 +9,4 @@
 2025-07-16 feat(summary): added summaryWorker, SummaryPanel UI, integrated aggregation & messaging ✓
 2025-07-16 test: added ringBuffer util and unit tests with vitest ✓
 2025-07-16 docs: added docs/arch.md documenting end-to-end ASR pipeline ✓
+2025-07-16 feat(accessibility): added Ctrl+Alt+C shortcut to toggle captions visibility ✓

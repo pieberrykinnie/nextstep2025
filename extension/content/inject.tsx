@@ -22,6 +22,7 @@ function RootApp() {
   const [lines, setLines] = useState<string[]>([]);
   const [summary, setSummary] = useState<string>("");
   const [actions, setActions] = useState<string[]>([]);
+  const [showCaptions, setShowCaptions] = useState<boolean>(true);
 
   useEffect(() => {
     const handler = (msg: any) => {
@@ -37,9 +38,20 @@ function RootApp() {
     return () => chrome.runtime.onMessage.removeListener(handler);
   }, []);
 
+  // keyboard shortcut Ctrl+Alt+C to toggle captions
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.code === "KeyC" && e.ctrlKey && e.altKey) {
+        setShowCaptions((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
     <>
-      <Caption lines={lines} fontSizePx={18} />
+      {showCaptions && <Caption lines={lines} fontSizePx={18} />}
       <SummaryPanel summary={summary} actions={actions} />
     </>
   );
