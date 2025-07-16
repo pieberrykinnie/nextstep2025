@@ -65,10 +65,10 @@ Legend: `[test]` – testing instructions • `[docs]` – documentation updates
     [test] Worker returns dummy summary from sample text.
 19. **feat(summary): 30 s aggregation push to LLM**  ✓
     [test] Summary panel populates after half-minute.
-20. **feat(nlp): action-item regex extractor** – Simple rule-based parse of summary.  
+20. **feat(nlp): action-item regex extractor** – Simple rule-based parse of summary.  ✓
     [test] Strings with "[ ]" tasks listed.
-21. **test:nlp** – Unit tests for extractor patterns.
-22. **style:summary panel** – Two-panel responsive layout.  
+21. **test:nlp** – Unit tests for extractor patterns. ✓
+22. **style:summary panel** – Two-panel responsive layout.  ✓
     [test] Resize window / panel persists.
 
 ---

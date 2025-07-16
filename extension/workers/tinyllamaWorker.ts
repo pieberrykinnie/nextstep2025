@@ -31,9 +31,11 @@ self.onmessage = (e) => {
     // TODO: Run TinyLLAMA inference on data.text
     // For now, return a dummy summary and action items
     const summary = data.text.split(".").slice(0, 2).join(".") + ".";
+    // Action item extraction: lines with [ ] or - [ ]
     const actions = data.text
       .split("\n")
-      .filter((l) => /\b(will|todo|action)\b/i.test(l));
+      .filter((l) => /(^|\s)(-\s*)?\[ \]/.test(l))
+      .map((l) => l.trim());
     const result: SummaryResult = { type: "summary", summary, actions };
     self.postMessage(result);
   }

@@ -14,3 +14,6 @@
 2025-07-16 feat(search): timeline scrollback & search box – added scrollable caption timeline with real-time search, keyboard navigation, and accessibility ✓
 2025-07-16 docs:caption usage – documented timeline scrollback & search in README and arch.md ✓
 2025-07-16 build:add TinyLLAMA wasm worker – scaffolded tinyllamaWorker.ts with init/summarize messages, ready for model integration ✓
+2025-07-16 feat(nlp): action-item regex extractor – TinyLLAMA worker now extracts '[ ]' tasks as action items ✓
+2025-07-16 test:nlp – unit tests for action-item extractor patterns pass ✓
+2025-07-16 style:summary panel – refactored to two-panel responsive layout, accessible and resizable ✓
