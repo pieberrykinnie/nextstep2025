@@ -36,6 +36,9 @@ function RootApp() {
   });
   const [storageWorker, setStorageWorker] = useState<Worker | null>(null);
   const [sessionId, setSessionId] = useState<string | null>(null);
+  const [settings, setSettings] = useState<any>({
+    accessibility: { highContrast: false, dyslexiaFont: false, fontSize: 18 },
+  });
 
   // Initialize storage worker
   useEffect(() => {
@@ -124,6 +127,14 @@ function RootApp() {
     return () => window.removeEventListener("keydown", onKey);
   }, [shortcuts]);
 
+  useEffect(() => {
+    chrome.storage.sync.get(["limitlessmeet_settings"], (result) => {
+      if (result.limitlessmeet_settings) {
+        setSettings(result.limitlessmeet_settings);
+      }
+    });
+  }, []);
+
   return (
     <>
       <div style={{ position: "fixed", top: 10, left: 10, zIndex: 2147483647, display: "flex", gap: 8 }}>
@@ -153,7 +164,14 @@ function RootApp() {
         open={settingsModalOpen}
         onClose={() => setSettingsModalOpen(false)}
       />
-      {showCaptions && <Caption lines={lines} fontSizePx={18} />}
+      {showCaptions && (
+        <Caption
+          lines={lines}
+          fontSizePx={settings.accessibility.fontSize}
+          highContrast={settings.accessibility.highContrast}
+          dyslexiaFont={settings.accessibility.dyslexiaFont}
+        />
+      )}
       <SummaryPanel summary={summary} actions={actions} captions={lines} />
     </>
   );
