@@ -20,3 +20,6 @@
 2025-07-16 feat(shortcuts): generic key mapping UI – added ShortcutModal, persistent mappings, and demo shortcut actions ✓
 2025-07-16 feat(WebHID): blink-board integration stub – added Connect HID Device button, logs device info or error ✓
 2025-07-16 docs:BCI API spec – documented expected HID report format and WebHID usage in arch.md ✓
+2025-07-16 feat(export): Markdown/HTML export – added export button to SummaryPanel, downloads meeting data as .md file ✓
+2025-07-16 feat(storage): session autosave – added IndexedDB storage worker, loads previous session and auto-saves every 30s ✓
+2025-07-16 test:integration save/restore – added Playwright tests for session save/restore functionality ✓

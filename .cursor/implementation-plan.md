@@ -80,18 +80,18 @@ Legend: `[test]` – testing instructions • `[docs]` – documentation updates
 24. **feat(WebHID): blink-board integration stub** – Connect to USB device, log events.  ✓
     [test] Simulated HID sends code triggers action.
 25. **docs:BCI API spec** – Describe expected HID report format. ✓
-26. **feat(export): Markdown/HTML export** – Button creates file with captions + summary + actions.  
+26. **feat(export): Markdown/HTML export** – Button creates file with captions + summary + actions.  ✓
     [test] Download file opens correctly.
-27. **feat(storage): session autosave (IndexedDB)**  
+27. **feat(storage): session autosave (IndexedDB)**  ✓
     [test] Refresh page; previous transcript loads.
-28. **test:integration save/restore** – Playwright script records short meeting, verifies DB entries.
+28. **test:integration save/restore** – Playwright script records short meeting, verifies DB entries. ✓
+29. **feat(settings): modal with tabs (General, Accessibility, Shortcuts)**  
+    [test] Changes persist via `chrome.storage.sync`.
 
 ---
 
 ## 7. Settings & Theming
 
-29. **feat(settings): modal with tabs (General, Accessibility, Shortcuts)**  
-    [test] Changes persist via `chrome.storage.sync`.
 30. **feat(theme): high-contrast & dyslexia-friendly fonts**  
     [test] Toggle switches update CSS vars.
 

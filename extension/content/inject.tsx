@@ -32,6 +32,50 @@ function RootApp() {
       return [];
     }
   });
+  const [storageWorker, setStorageWorker] = useState<Worker | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(null);
+
+  // Initialize storage worker
+  useEffect(() => {
+    const worker = new Worker("storageWorker.js"); // TODO: adjust path as needed
+    worker.onmessage = (e) => {
+      const { type, session, sessionId: id, error } = e.data;
+      if (type === "loaded" && session) {
+        setLines(session.captions || []);
+        setSummary(session.summary || "");
+        setActions(session.actions || []);
+        setSessionId(session.id);
+      } else if (type === "saved") {
+        setSessionId(id);
+      } else if (type === "error") {
+        console.error("Storage error:", error);
+      }
+    };
+    setStorageWorker(worker);
+    
+    // Load previous session
+    worker.postMessage({ type: "load" });
+    
+    return () => worker.terminate();
+  }, []);
+
+  // Auto-save session data every 30 seconds
+  useEffect(() => {
+    if (!storageWorker) return;
+    
+    const interval = setInterval(() => {
+      storageWorker.postMessage({
+        type: "save",
+        data: {
+          captions: lines,
+          summary,
+          actions,
+        },
+      });
+    }, 30000);
+    
+    return () => clearInterval(interval);
+  }, [storageWorker, lines, summary, actions]);
 
   useEffect(() => {
     localStorage.setItem("limitlessmeet.shortcuts", JSON.stringify(shortcuts));
@@ -95,7 +139,7 @@ function RootApp() {
         onRemove={idx => setShortcuts((prev: any) => prev.filter((_: any, i: number) => i !== idx))}
       />
       {showCaptions && <Caption lines={lines} fontSizePx={18} />}
-      <SummaryPanel summary={summary} actions={actions} />
+      <SummaryPanel summary={summary} actions={actions} captions={lines} />
     </>
   );
 }
